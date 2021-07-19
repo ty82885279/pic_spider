@@ -1,0 +1,11 @@
+# topic数组
+topic: "dalu"
+#kafka
+address: "127.0.0.1:9092"
+starturl: "https://www.enterdesk.com/special/sexygirl/rela/"
+# starturl: "https://mm.enterdesk.com/qingchunmeinv/"
+page: 1
+index: 0
+category: "dalu"
+max_work_size: 8
+img_path: "/Users/mrlee/Desktop/ppppp"

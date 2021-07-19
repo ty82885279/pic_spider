@@ -1,0 +1,21 @@
+name: "save2table"
+version: "1.0.0"
+mode: "dev"
+port: 8081
+start_time: "2020-10-09"
+machine_id: 1
+
+mysql:
+  host: "127.0.0.1"
+  port: 3306
+  user: "root"
+  password: "root123"
+  dbname: "test_meinv"
+  max_open_conns: 200
+  max_idle_conns: 50
+log:
+  level: "debug"
+  filename: "./app.log"
+  max_size: 200
+  max_age: 30
+  max_backups: 7

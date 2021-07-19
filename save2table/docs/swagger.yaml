@@ -1,0 +1,89 @@
+basePath: /api/v1
+definitions:
+  controllers._ResponseSuccess:
+    properties:
+      code:
+        description: 状态码
+        type: integer
+      data:
+        $ref: '#/definitions/models.Pics'
+        description: 数据
+        type: object
+      msg:
+        description: 提示信息
+        type: string
+    type: object
+  controllers._Responsefailure:
+    properties:
+      code:
+        description: 状态码
+        type: integer
+      msg:
+        description: 提示信息
+        type: string
+    type: object
+  models.Pics:
+    properties:
+      category:
+        description: 选填：分类，没有就传空
+        example: 清纯
+        type: string
+      description:
+        description: 选填：图集描述，没有就传空
+        example: 这里是描述
+        type: string
+      pics:
+        description: 必填：图片链接，存在1个以上请用'｜'拼接
+        example: xxx1.jpg|xxx2.jpg|xxx3.jpg
+        type: string
+      tags:
+        description: 选填：标签，没有就传空，存在1个以上请用'｜'拼接，
+        example: 标签1|标签2|标签3
+        type: string
+      title:
+        description: 必填：图集标题
+        example: 清纯美少女
+        type: string
+      webside:
+        description: 必填：网站拼音或者缩写
+        example: baidu
+        type: string
+    type: object
+host: 192.168.3.180:8081
+info:
+  contact: {}
+  description: 上传各种美女图片
+  license: {}
+  title: 美女图片
+  version: "1.0"
+paths:
+  /pics:
+    post:
+      consumes:
+      - application/json
+      description: 上传美女图集接口
+      parameters:
+      - description: 参数列表
+        in: body
+        name: object
+        schema:
+          $ref: '#/definitions/models.Pics'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 请求成功
+          schema:
+            $ref: '#/definitions/controllers._ResponseSuccess'
+        "1001":
+          description: 参数错误
+          schema:
+            $ref: '#/definitions/controllers._Responsefailure'
+        "1002":
+          description: 服务繁忙
+          schema:
+            $ref: '#/definitions/controllers._Responsefailure'
+      summary: 上传图集接口
+      tags:
+      - 上传
+swagger: "2.0"
